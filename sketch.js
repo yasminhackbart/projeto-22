@@ -32,7 +32,7 @@ function setup() {
     engine = Engine.create();
 	world = engine.world;
 
-	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:false});
+	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:true});
 	World.add(world, starBody);
 	
 	Engine.run(engine);
@@ -50,9 +50,13 @@ fada.x = fada.x + -3;
 if(keyDown(RIGHT_ARROW)){
     fada.x = fada.x + 3;
 }
+	
+if(keyDown(DOWN_ARROW)){
+ Matter.Body.setStatic(starBody,false);
+}
 
 
-if(star.y > 30 && starBody.position.y > 30){
+if(star.y > 470 && starBody.position.y > 470){
     Matter.Body.setStatic(starBody,true);
 }
 
